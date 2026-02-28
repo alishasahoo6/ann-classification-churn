@@ -6,7 +6,7 @@ import pickle
 from sklearn.preprocessing import LabelEncoder,StandardScaler,OneHotEncoder
 
 # Load the trained model
-model = tf.keras.models.load_model('model.h5')
+model = tf.keras.models.load_model('model.h5', compile=False)
 
 # Load the label encoder and scaler
 with open('label_encoder_gender.pkl', 'rb') as file:
@@ -65,4 +65,5 @@ st.write(f"Churn Probability: {prediction_prob:.2f}")
 if prediction_prob > 0.5:
     st.write("The customer is likely to churn.")
 else:
+
     st.write("The customer is unlikely to churn.")
